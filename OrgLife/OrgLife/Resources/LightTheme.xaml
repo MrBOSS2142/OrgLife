@@ -1,0 +1,187 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:OrgLife.Resources">
+    <!--TexBox-->
+    <ControlTemplate TargetType="TextBox"  x:Key="TextBoxBlue">
+        <Grid>
+            <Border x:Name="TextBoxBorder" 
+                    BorderThickness="0 0 0 2"
+                    Background="#315794"
+                    Height="{TemplateBinding Height}"
+                    Width="{TemplateBinding Width}"/>
+            <ScrollViewer Margin="5" x:Name="PART_ContentHost"/>
+        </Grid>
+        <ControlTemplate.Triggers>
+            <Trigger Property="IsFocused" Value="True">
+                <Setter TargetName="TextBoxBorder" Property="BorderBrush" Value="#2B9ED8"/>
+            </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+
+    <!--PasswordBox-->
+    <ControlTemplate TargetType="PasswordBox"  x:Key="PasswordBox">
+        <Grid>
+            <Border x:Name="PasswordBoxBorder" 
+                    BorderThickness="0 0 0 2"
+                    Background="#315794"
+                    Height="{TemplateBinding Height}"
+                    Width="{TemplateBinding Width}"/>
+            <ScrollViewer Margin="5" x:Name="PART_ContentHost"/>
+        </Grid>
+        <ControlTemplate.Triggers>
+            <Trigger Property="IsFocused" Value="True">
+                <Setter TargetName="PasswordBoxBorder" Property="BorderBrush" Value="#2B9ED8"/>
+            </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+
+    <!-- Buttons -->
+    <ControlTemplate TargetType="Button" x:Key="buttonBlue">
+        <Border x:Name="buttonBlueBorder" 
+                    BorderThickness="1"
+                    CornerRadius="3"
+                    Background="#315794"
+                    Height="{TemplateBinding Height}"
+                    Width="{TemplateBinding Width}">
+            <ContentControl Margin="{TemplateBinding Padding}"
+                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                Content="{TemplateBinding Content}"/>
+        </Border>
+        <ControlTemplate.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter TargetName="buttonBlueBorder" Property="Background" Value="#1D4380"/>
+                <Setter TargetName="buttonBlueBorder" Property="BorderBrush" Value="#97A5F7"/>
+            </Trigger>
+            <MultiTrigger>
+                <MultiTrigger.Conditions>
+                    <Condition Property="IsMouseOver" Value="True" />
+                    <Condition Property="IsPressed" Value="True" />
+                </MultiTrigger.Conditions>
+                <MultiTrigger.Setters>
+                    <Setter TargetName="buttonBlueBorder" Property="Background" Value="#0E3471"/>
+                </MultiTrigger.Setters>
+            </MultiTrigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+
+    <!--Прозрачная кнопка без эффектов-->
+    <ControlTemplate TargetType="Button" x:Key="buttonTranspanent">
+        <Border x:Name="buttonTranspanentBorder" 
+                    Background="{x:Null}"
+                    Height="{TemplateBinding Height}"
+                    Width="{TemplateBinding Width}">
+            <ContentControl Margin="{TemplateBinding Padding}"
+                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                Content="{TemplateBinding Content}"/>
+        </Border>
+    </ControlTemplate>
+
+    <!--кнопка регистрации-->
+    <ControlTemplate TargetType="Button" x:Key="buttonRegistr">  
+        <Border x:Name="buttonRegistrBorder" 
+                    BorderThickness="1"
+                    CornerRadius="3"
+                    Background="Transparent"
+                    Height="{TemplateBinding Height}"
+                    Width="{TemplateBinding Width}">
+            <ContentControl Margin="{TemplateBinding Padding}"
+                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                Content="{TemplateBinding Content}"/>
+        </Border>
+        <ControlTemplate.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter TargetName="buttonRegistrBorder" Property="Background" Value="#315794"/>
+                <Setter TargetName="buttonRegistrBorder" Property="BorderBrush" Value="#97A5F7"/>
+                <Setter TargetName="buttonRegistrBorder" Property="Button.Foreground" Value="White"/>
+            </Trigger>
+            <MultiTrigger>
+                <MultiTrigger.Conditions>
+                    <Condition Property="IsMouseOver" Value="True" />
+                    <Condition Property="IsPressed" Value="True" />
+                </MultiTrigger.Conditions>
+                <MultiTrigger.Setters>
+                    <Setter TargetName="buttonRegistrBorder" Property="Background" Value="#0E3471"/>
+                </MultiTrigger.Setters>
+            </MultiTrigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+
+    <!--кнопка закрытия-->
+    <ControlTemplate TargetType="Button" x:Key="buttonClose">    
+        <Border x:Name="buttonCloseBorder" 
+                    Background="#FF0800"
+                    Height="{TemplateBinding Height}"
+                    Width="{TemplateBinding Width}">
+            <ContentControl Margin="{TemplateBinding Padding}"
+                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                Content="{TemplateBinding Content}"/>
+        </Border>
+        <ControlTemplate.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter TargetName="buttonCloseBorder" Property="Background" Value="#AA0000"/>
+            </Trigger>
+            <Trigger Property="IsPressed" Value="True">
+                <Setter TargetName="buttonCloseBorder" Property="Background" Value="#D13030"/>
+            </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+
+    <!--кнопка свертывания-->
+    <ControlTemplate TargetType="Button" x:Key="btnSizeСurtail">  
+        <Border x:Name="btnFullSizeBorder" 
+                    Background="#0E5C9A"
+                    Height="{TemplateBinding Height}"
+                    Width="{TemplateBinding Width}">
+            <ContentControl Margin="{TemplateBinding Padding}"
+                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                Content="{TemplateBinding Content}"/>
+        </Border>
+        <ControlTemplate.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter TargetName="btnFullSizeBorder" Property="Background" Value="#023D7B"/>
+            </Trigger>
+            <Trigger Property="IsPressed" Value="True">
+                <Setter TargetName="btnFullSizeBorder" Property="Background" Value="#427CBA"/>
+            </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+
+    <!--круглая кнопка-->
+    <ControlTemplate TargetType="Button" x:Key="Circle">
+        <Border x:Name="btnFullSizeBorder" 
+                CornerRadius="65"
+                Background="{TemplateBinding Background}"
+                    Height="{TemplateBinding Height}"
+                    Width="{TemplateBinding Width}">
+            <ContentControl Margin="{TemplateBinding Padding}"
+                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                Content="{TemplateBinding Content}"/>
+        </Border>
+    </ControlTemplate>
+
+    <!--RichTextBox-->
+    <!--Прозрачный RichTextBox-->
+    <ControlTemplate TargetType="RichTextBox"  x:Key="RichTextBoxInvis">
+        <Grid>
+            <Border x:Name="RichTextBoxBorder"                        
+                    Background="{x:Null}"
+                    BorderBrush="{x:Null}"
+                    Height="{TemplateBinding Height}"
+                    Width="{TemplateBinding Width}"/>
+            <ScrollViewer Margin="10" x:Name="PART_ContentHost"/>
+        </Grid>
+        <ControlTemplate.Triggers>
+            <Trigger Property="IsFocused" Value="True">
+                <Setter TargetName="RichTextBoxBorder" Property="BorderBrush" Value="{x:Null}"/>
+                <Setter TargetName="RichTextBoxBorder" Property="Background" Value="{x:Null}"/>
+            </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+
+</ResourceDictionary>

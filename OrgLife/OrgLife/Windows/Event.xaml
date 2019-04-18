@@ -1,0 +1,56 @@
+﻿<UserControl
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:OrgLife.Windows"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:OrgLife="clr-namespace:OrgLife" x:Class="OrgLife.Windows.Event"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800" Background="#D8D8D8" Loaded="UserControl_Loaded">
+    <UserControl.Resources>
+        <OrgLife:OrganizerDataSet x:Key="organizerDataSet"/>
+        <CollectionViewSource x:Key="eventViewSource" Source="{Binding Event, Source={StaticResource organizerDataSet}}"/>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition  Width="280px"/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="0" Margin="20">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition/>
+                <RowDefinition Height="50px"/>
+            </Grid.RowDefinitions>
+            <Label Content="Дата" Grid.Row="0" x:Name="NoteDateLabel" FontSize="18" HorizontalAlignment="Center"/>
+            <DatePicker x:Name="DateEvent" Grid.Row="1" Width="250" Height="35" FontSize="18" Foreground="#315794"/>
+            <Label Content="Текст" Grid.Row="2" x:Name="NoteTitlText" FontSize="18" HorizontalAlignment="Center"/>
+            <RichTextBox x:Name="EventText" Background="White" Grid.Row="3" CaretBrush="Black"
+                     Foreground="Black" FontSize="18" BorderBrush="White" ScrollViewer.VerticalScrollBarVisibility="Auto"/>
+            <StackPanel Grid.Row="5" Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button x:Name="AddEvent" VerticalAlignment="Bottom" HorizontalAlignment="Left" BorderBrush="{x:Null}"
+                        Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Background="#315794" Click="AddEvent_Click">
+                    <materialDesign:PackIcon Kind="Plus" Width="25" Height="25"/>
+                </Button>
+                <Button x:Name="DeleteEvent" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="40 0 0 0" BorderBrush="{x:Null}"
+                        Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Background="#315794" Click="DeleteEvent_Click" IsEnabled="False">
+                    <materialDesign:PackIcon Kind="Delete" Width="25" Height="25"/>
+                </Button>
+            </StackPanel>
+        </Grid>
+        <Grid Grid.Column="1" DataContext="{StaticResource eventViewSource}">
+            <DataGrid x:Name="eventDataGrid" RowDetailsVisibilityMode="VisibleWhenSelected" ItemsSource="{Binding}" EnableRowVirtualization="True"
+                      AutoGenerateColumns="False" IsReadOnly="True" CanUserResizeColumns="False" MouseDoubleClick="EventDataGrid_MouseDoubleClick">
+                <DataGrid.Columns>
+                    <DataGridTextColumn x:Name="iD_EventColumn" MaxWidth="0" Header="ID Event" Binding="{Binding ID_Event}"/>
+                    <DataGridTextColumn x:Name="text_EventColumn" Width="140"  Header="Текст" Binding="{Binding Text_Event}"/>
+                    <DataGridTextColumn x:Name="dateEventColumn" Width="auto" Header="Дата" Binding="{Binding DateEvent}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+
+        </Grid>
+    </Grid>
+</UserControl>

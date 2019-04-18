@@ -1,0 +1,63 @@
+﻿<Window x:Class="OrgLife.Windows.ChangeUserInf"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:OrgLife.Windows"
+       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        Title="Создание пользователя" Height="500" Width="470" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None" Loaded="WindowLoaded">
+    <Grid Background="#D8D8D8">
+        <Border BorderThickness="1" BorderBrush="#315794">
+            <StackPanel>
+                <StackPanel Orientation="Vertical">
+                    <Grid>
+                        <Button VerticalAlignment="Top" HorizontalAlignment="Right" Name="btnClose" Template="{StaticResource buttonClose}"
+                        Padding="0" Width="25" Height="20" Click="BtnNewUserClose_CLick">
+                            <Image Source="/OrgLife;component/Resources/Img/Close.png" Width="10" Margin="2"/>
+                        </Button>
+                        <Button VerticalAlignment="Top" HorizontalAlignment="Right" Name="btnСurtailWnd" Template="{StaticResource btnSizeСurtail}"
+                    Padding="0" Width="25" Height="20" Click="BtnСurtailWnd_CLick" Margin="0 0 25 0">
+                            <Image Source="/OrgLife;component/Resources/Img/СurtaiWnd.png" Width="10" Margin="2"/>
+                        </Button>
+                    </Grid>
+                    <TextBlock Text="Редактирование пользователя" HorizontalAlignment="Center" VerticalAlignment="Center"
+                           FontSize="24"/>
+                </StackPanel>
+                <StackPanel  Margin="5">
+                    <Button Name="UserPhoto" BorderBrush="{x:Null}" Height="150" Width="150" HorizontalAlignment="Center"
+                        Margin="0 20" Padding="0" Click="ImageChange" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}">
+                        <Button.Background>
+                            <ImageBrush ImageSource="/OrgLife;component/Resources/Img/user3.png" Stretch="UniformToFill"/>
+                        </Button.Background>
+                    </Button>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Label Content="Логин пользователя" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left"
+                           VerticalAlignment="Center" Margin="10" FontSize="18" Foreground="#315794"/>
+                        <TextBox x:Name="Username" Grid.Row="0" Grid.Column="1" MaxLength="16" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="18"
+                             Width="220" Margin="10" Foreground="White" BorderBrush="White" Template="{StaticResource TextBoxBlue}"/>
+                        <Label Content="Старый пароль" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left" 
+                           VerticalAlignment="Center" Margin="10" FontSize="18" Foreground="#315794"/>
+                        <TextBox x:Name="userOldPassword" Grid.Row="1" Grid.Column="1" MaxLength="16" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="18"
+                             Width="220" Margin="10" Foreground="White" Template="{StaticResource TextBoxBlue}"/>
+                        <Label Content="Новый пароль" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Left" 
+                           VerticalAlignment="Center" Margin="10" FontSize="18" Foreground="#315794"/>
+                        <TextBox x:Name="userNewPassword" Grid.Row="2" Grid.Column="1" MaxLength="16" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="18"
+                             Width="220" Margin="10" Foreground="White" Template="{StaticResource TextBoxBlue}"/>
+                    </Grid>
+                    <Button x:Name="userAdd" Content="Сохранить" Grid.ColumnSpan="2" Template="{StaticResource buttonBlue}"
+                           HorizontalAlignment="Center" VerticalAlignment="Top" Width="160" Height="35" Margin="10 20" Click="BtnUserChangeInf"/>
+                </StackPanel>
+            </StackPanel>
+        </Border>
+    </Grid>
+</Window>
