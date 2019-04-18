@@ -1,7 +1,7 @@
 # OrgLife
 Курсовой проект
 ***
-Тема: Программное средство «Персональный органайзер»	
+Тема: Программное средство "Персональный органайзер"
 ***
 Выполнил: Сухаревич Сергей
 ***
@@ -9,7 +9,7 @@
 ***
 Course project
 ***
-Subject: Software "Personal organizer»	
+Subject: Software "Personal organizer"
 ***
 Performed: Sergey Sukharevich
 ***
